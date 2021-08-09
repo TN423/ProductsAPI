@@ -1,0 +1,34 @@
+{
+  "name": "productsapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bluebird": "^3.7.2",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  },
+
+  "devDependencies": {},
+
+
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SDC-Team-Cherry-Garcia/ProductsAPI.git"
+  },
+
+  "bugs": {
+    "url": "https://github.com/SDC-Team-Cherry-Garcia/ProductsAPI/issues"
+  }
+
+}
