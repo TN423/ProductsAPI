@@ -1,12 +1,12 @@
 const mysql = require('mysql');
 
-//localhost or host.docker.internal
+//host.docker.internal
 //'18.117.152.91'
 //'localhost'
 //host?
 //don't i need to specify ssh and my pem file somewhere
 const connection = mysql.createConnection({
-  host: 'localhost',
+  host: '18.117.152.91',
   user: 'root',
   password: '',
   database: 'ProdList',
