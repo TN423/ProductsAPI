@@ -1,0 +1,16 @@
+
+
+
+
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 1
+      arrivalRate: 1000
+      name: products end-point
+scenarios:
+  - flow:
+      # - get:
+      #     url: "/products"
+      - get:
+          url: "/products/1000005/styles"
