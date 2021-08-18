@@ -6,6 +6,13 @@ const app = express();
 app.use(express.json());
 
 //controllers
+
+app.get('/loaderio-8227407897b7de001dd385d007efcb6a.txt', (req, res)=>{
+  res.send('loaderio-8227407897b7de001dd385d007efcb6a');
+});
+
+
+
 app.get('/products', (req, res) => {
   // console.log('this is .params', req.params['count']);
   var count = req.query.count;
@@ -80,6 +87,9 @@ app.get('/products/:product_id', (req, res)=>{
     }
   });
 });
+
+
+
 
 app.get('/productsMess/:product_id/styles', (req, res)=>{
   var id = req.params.product_id;
