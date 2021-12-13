@@ -39,7 +39,7 @@
 
 ### xx
 
-- We used **xx**
+- We used testing **xx**
 
   ![Wire Diagram](dist/static/assets/Figma1.png 'Wire Diagram')
   ![Miro Diagram](dist/static/assets/Miro.png 'Miro')
