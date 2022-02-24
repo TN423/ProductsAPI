@@ -37,8 +37,6 @@
 
 ## Database and ETL
 
-### xx
-
 - We used testing **xx**
 
   ![Wire Diagram](dist/static/assets/Figma1.png 'Wire Diagram')
@@ -51,7 +49,7 @@
 
     Parameters
 
-    ![](images/get_products_params.png)
+    ![Get Products](images/get_products_params.png 'Get Products')
 
     Response
 
