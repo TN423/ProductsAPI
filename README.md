@@ -47,10 +47,54 @@
 
 ## Server Routes:
 
-- `GET /products` - Retrieves the list of products
-- GET /products/:product_id - Returns all product level information for a specified product id
-- GET /products/:product_id/styles - Returns all styles available for a given product
-- GET /products/:product_id/related - Returns the IDs of products related to the product specified
+1. `GET /products` - Retrieves the list of products
+
+    Parameters
+
+    ![](images/get_products_params.png)
+
+    Response
+
+    `Status: 200 OK`
+
+    ![](images/get_products_response.png)
+
+2.  `GET /products/:product_id` - Returns all product level information for a specified product id
+
+    Parameters
+
+    ![](images/get_productID_params.png)
+
+    Response
+
+    `Status: 200 OK`
+
+    ![](images/get_productID_response.png)
+3. `GET /products/:product_id/styles` - Returns all styles available for a given product
+
+    Parameters
+
+    ![](images/get_productStyles_params.png)
+
+    Response
+
+    `Status: 200 OK`
+
+    ![](images/get_productStyles_response.png)
+
+
+4. `GET /products/:product_id/related` - Returns the IDs of products related to the product specified
+
+    Parameters
+
+    ![](images/get_related_params.png)
+
+    Response
+
+    `Status: 200 OK`
+
+    ![](images/get_related_response.png)
+
 - https://learn-2.galvanize.com/cohorts/2779/blocks/94/content_files/Front%20End%20Capstone/project-atelier-catwalk/products.md
 
 
