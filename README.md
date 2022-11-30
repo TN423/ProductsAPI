@@ -103,7 +103,6 @@ Database Queries
 ## Deployment
 - Deployed server and database on AWS using EC2 t2.micros
 - Used Secure Copy Protocol (SCP) to transfer data from local database into deployed database
-- Altered deployed database to connect to deployed server. I permisisoned the specific IP address of server, to make more secure
 
 ![](images/AWS.png)
 
