@@ -99,8 +99,6 @@ Database Queries
 
     ![](images/get_related_response.png)
 
-- https://learn-2.galvanize.com/cohorts/2779/blocks/94/content_files/Front%20End%20Capstone/project-atelier-catwalk/products.md
-
 
 ## Deployment
 - Deployed server and database on AWS using EC2 t2.micros
@@ -145,3 +143,6 @@ Here is what the final system design looked like, after impleminting horizontal 
     <td align="center"><a href="https://github.com/TN423"><img src="https://avatars.githubusercontent.com/u/80915187?v=4" width="100px;" alt=""/><br /><sub><b>Justin Hurst</b></sub></a><br /></td>
   </tr>
 </table>
+
+
+<!-- https://learn-2.galvanize.com/cohorts/2779/blocks/94/content_files/Front%20End%20Capstone/project-atelier-catwalk/products.md -->
