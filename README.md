@@ -41,7 +41,7 @@
 ## Database and ETL
 ETL
 - Data for the API originally came in the form of 6 csv files: product, features, styles, photos, skus,and related products
-- Created a local mySql database with a schema identical to the CSV files, then used 'LOAD DATA' statements to transfer the data from the CSVs into the database (see ETL.sql and schema.sql files)
+- Created a local MySQL database with a schema identical to the CSV files, then used 'LOAD DATA' statements to transfer the data from the CSVs into the database (see ETL.sql and schema.sql files)
 - Matching the database schema with the CSV file structures meant that no compute intensive data transformations were required (I skipped the 'T' in 'ETL')
 - Attempted using NodeJS's fs.createWriteStream() and fs.createReadStream(), which would have allowed for transforming the data, but it was too compute intensive (waited 10 hours to finish a single CSV file, then computer froze)
 
@@ -124,8 +124,8 @@ Database Queries
 ## Optimization 2: Redis Caching
 - Further improved performance by caching responses for the most compute intensive server endpoint (in this case an endpoint that made multiple database queries)
 - Chose Redis for caching, due to ease of implementation (see server index.js file)
-  - Each time a request is made, the server first checks the Redis cache for the data. The server then only queries the mySQL database if the information isn't already found in the Redis cache
-
+  - Each time a request is made, the server first checks the Redis cache for the data. The server then only queries the MySQL database if the information isn't already found in the Redis cache
+ƒ
 ## System Design
 Here is what the final system design looked like, after impleminting horizontal scaling and Redis caching
 
