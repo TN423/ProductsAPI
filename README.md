@@ -26,6 +26,8 @@
 - Deployed at low cost using **AWS** EC2 T2micros
 - Tested response times and user throughput using **Loader.io**
 
+  ![](images/design_2.png)
+
 ## Technologies Used
 - [React](https://reactjs.org/)
 - [Node.js](https://nodejs.org/en/)
@@ -133,7 +135,7 @@ Here is what the final system design looked like, after impleminting horizontal 
 - I tested throughput and server response times of the deployed server, both before and after performance optimizations
 - After implementing horizontal scaling and caching, server throughput improved from 700rps to 2000rps, while maintaining a 15ms response time and an error rate <1%
 
-![](images/loader_io.png)
+  ![](images/loader_io.png)
 
 ## Contributors:
 
