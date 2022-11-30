@@ -17,7 +17,6 @@
 - [Contributors](#Contributors)
 
 ## Overview
-2022 Update - This project was originally deployed on AWS, but has since been spun down
 - This is an e-commerce Restful API microservice, containing data on roughly 1 million apparel and fashion products
 - Performed an extract, transform, and load (ETL) process to transfer 12+ million records from 6 CSV files into a deployed **MySQL** database
 - Designed **RESTful API** server to handle front end requests
@@ -25,6 +24,7 @@
 - Scaled horizontally using an **NGINX** load balancer
 - Deployed at low cost using **AWS** EC2 T2micros
 - Tested response times and user throughput using **Loader.io**
+*Note This project was originally deployed on AWS, but has since been spun down
 
 ## Technologies Used
 - [React](https://reactjs.org/)
