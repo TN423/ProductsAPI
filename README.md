@@ -10,14 +10,15 @@
 - [Technologies Used](#Technologies-Used)
 - [Database and ETL](#Database-and-ETL)
 - [Server Routes](#Server-Routes)
-- [Deployment - Database](#Deployment-Database)
-- [Deployment - Server](#Deployment-Server)
+- [Deployment](#Deployment)
 - [Performance Testing](#Performance-Testing)
 - [Optimization 1: NGINX and Horizontal Scaling](#Optimization-1)
 - [Optimization 2: Redis Caching](#Optimization-2)
 - [Contributors](#Contributors)
 
 ## Overview
+2022 Update - This project was originally deployed on AWS, but has since been spun down
+- This is an e-commerce Restful API microservice, containing data on roughly 1 million apparel and fashion products
 - Performed an extract, transform, and load (ETL) process to transfer 12+ million records from 6 CSV files into a deployed **MySQL** database
 - Designed **RESTful API** server to handle front end requests
 - Implemented server side caching with **Redis** to improve latency
@@ -33,19 +34,22 @@
 - [AWS](https://aws.amazon.com/)
 - [NGINX](https://www.nginx.com/)
 - [Redis](https://redis.io/)
-- [Loader.io] (https://loader.io/)
+- [Loader](https://loader.io/)
 
 ## Database and ETL
+ETL
+- Data for the API originally came in the form of 6 csv files: product, features, styles, photos, skus,and related products
+- I created a local mySql database with a schema identical to the CSV files, then used 'LOAD DATA' statements to transfer the data from the CSVs into the database (see ETL.sql and schema.sql files)
+- Matching the database schema with the CSV file structures meant that I didn't need to do any compute intensive data transformations (I skipped the 'T' in 'ETL')
+- I also attempted using NodeJS's fs.createWriteStream() and fs.createReadStream(), which would have allowed for transforming the data, but it was too compute intensive (waited 10 hours to finish a single CSV file, then computer froze)
 
-- We used testing **xx**
+Database Queries
+- Some server endpoints required data from 3 different database tables. I used table joins to reduce the number of queries required, then further shaped the data in the server
 
-  ![Wire Diagram](dist/static/assets/Figma1.png 'Wire Diagram')
-  ![Miro Diagram](dist/static/assets/Miro.png 'Miro')
-  ![Trello Diagram](dist/static/assets/Trello.png 'Trello')
 
 ## Server Routes:
 
-1. `GET /products` - Retrieves the list of products
+1. `GET /products` - Retrieves a list of products
 
     Parameters
 
@@ -96,7 +100,7 @@
 - https://learn-2.galvanize.com/cohorts/2779/blocks/94/content_files/Front%20End%20Capstone/project-atelier-catwalk/products.md
 
 
-## Deployment - Database:
+## Deployment
 
 - xx
 
