@@ -11,9 +11,10 @@
 - [Database and ETL](#Database-and-ETL)
 - [Server Routes](#Server-Routes)
 - [Deployment](#Deployment)
+- [Optimization 1: NGINX and Horizontal Scaling](#Optimization-1:-NGINX-and-Horizontal-Scaling)
+- [Optimization 2: Redis Caching](#Optimization-2:-Redis-Caching)
+- [System Design](#System-Design)
 - [Performance Testing](#Performance-Testing)
-- [Optimization 1: NGINX and Horizontal Scaling](#Optimization-1)
-- [Optimization 2: Redis Caching](#Optimization-2)
 - [Contributors](#Contributors)
 
 ## Overview
@@ -24,7 +25,6 @@
 - Scaled horizontally using an **NGINX** load balancer
 - Deployed at low cost using **AWS** EC2 T2micros
 - Tested response times and user throughput using **Loader.io**
-*Note This project was originally deployed on AWS, but has since been spun down
 
 ## Technologies Used
 - [React](https://reactjs.org/)
@@ -39,13 +39,12 @@
 ## Database and ETL
 ETL
 - Data for the API originally came in the form of 6 csv files: product, features, styles, photos, skus,and related products
-- I created a local mySql database with a schema identical to the CSV files, then used 'LOAD DATA' statements to transfer the data from the CSVs into the database (see ETL.sql and schema.sql files)
-- Matching the database schema with the CSV file structures meant that I didn't need to do any compute intensive data transformations (I skipped the 'T' in 'ETL')
-- I also attempted using NodeJS's fs.createWriteStream() and fs.createReadStream(), which would have allowed for transforming the data, but it was too compute intensive (waited 10 hours to finish a single CSV file, then computer froze)
+- Created a local mySql database with a schema identical to the CSV files, then used 'LOAD DATA' statements to transfer the data from the CSVs into the database (see ETL.sql and schema.sql files)
+- Matching the database schema with the CSV file structures meant that no compute intensive data transformations were required (I skipped the 'T' in 'ETL')
+- Attempted using NodeJS's fs.createWriteStream() and fs.createReadStream(), which would have allowed for transforming the data, but it was too compute intensive (waited 10 hours to finish a single CSV file, then computer froze)
 
 Database Queries
 - Some server endpoints required data from 3 different database tables. I used table joins to reduce the number of queries required, then further shaped the data in the server
-test
 
 
 ## Server Routes:
@@ -102,21 +101,39 @@ test
 
 
 ## Deployment
+- Deployed server and database on AWS using EC2 t2.micros
+- Used Secure Copy Protocol (SCP) to transfer data from local database into deployed database
+- Altered deployed database to connect to deployed server. I permisisoned the specific IP address of server, to make more secure
 
-- xx
+![](images/AWS.png)
 
-## Deployment - Server:
+## Optimization 1: NGINX and Horizontal Scaling
+- After deployment, improved performance using horizontal scaling
+- Used NGINX as a load balancer
+  - Install NGINX on a new EC2 instance
+  - Edit the nginx.conf file to specify the ip addresses and ports of each server that traffic will be routed to
+  - Edit the http specification to have an ‘upstream’ section
+  - Specify the method of request distribution (I tried least connections and round robin)
+  - Under server location, proxy pass the upstream section
+  - Any request coming to NGINX EC2 on the specified port is now routed to one of the upstream servers
+    - Tested by putting a console.log on one endpoint for every upstream server, then requesting data from that endpoint multiple times
+    - If a different server console.log is triggered by each request, then we know the requests are being distributed to a different server each time
 
-- xx
+## Optimization 2: Redis Caching
+- Further improved performance by caching responses for the most compute intensive server endpoint (in this case an endpoint that made multiple database queries)
+- Chose Redis for caching, due to ease of implementation (see server index.js file)
+  - Each time a request is made, the server first checks the Redis cache for the data. The server then only queries the mySQL database if the information isn't already found in the Redis cache
+
+## System Design
+Here is what the final system design looked like, after impleminting horizontal scaling and Redis caching
+
+![](images/design_2.png)
 
 ## Performance Testing:
+- I tested throughput and server response times of the deployed server, both before and after performance optimizations
+- After implementing horizontal scaling and caching, server throughput improved from 700rps to 2000rps, while maintaining a 15ms response time and an error rate <1%
 
-
-## Optimization 1: NGINX and Horizontal Scaling:
-- xx
-
-## Optimization 2: Redis Caching:
-- xx
+![](images/loader_io.png)
 
 ## Contributors:
 
