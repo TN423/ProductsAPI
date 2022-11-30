@@ -45,6 +45,7 @@ ETL
 
 Database Queries
 - Some server endpoints required data from 3 different database tables. I used table joins to reduce the number of queries required, then further shaped the data in the server
+test
 
 
 ## Server Routes:
