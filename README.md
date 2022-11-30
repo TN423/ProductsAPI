@@ -122,7 +122,7 @@ Database Queries
 - Further improved performance by caching responses for the most compute intensive server endpoint (in this case an endpoint that made multiple database queries)
 - Chose Redis for caching, due to ease of implementation (see server index.js file)
   - Each time a request is made, the server first checks the Redis cache for the data. The server then only queries the MySQL database if the information isn't already found in the Redis cache
-ƒ
+
 ## System Design
 Here is what the final system design looked like, after impleminting horizontal scaling and Redis caching
 
@@ -132,7 +132,7 @@ Here is what the final system design looked like, after impleminting horizontal 
 - I tested throughput and server response times of the deployed server, both before and after performance optimizations
 - After implementing horizontal scaling and caching, server throughput improved from 700rps to 2000rps, while maintaining a 15ms response time and an error rate <1%
 
-  ![](images/loader_io.png)
+  ![](images/Loader.png)
 
 ## Contributors:
 
