@@ -22,9 +22,12 @@
 - Performed an extract, transform, and load (ETL) process to transfer 12+ million records from 6 CSV files into a deployed **MySQL** database
 - Designed **RESTful API** server to handle front end requests
 - Implemented server side caching with **Redis** to improve latency
-- Scaled horizontally using an **NGINX** load balancer
-- Deployed at low cost using **AWS** EC2 T2micros
+- Implemented an **NGINX** load balancer
+    - Experimented with both 'round robin' and 'least connections' methods of server request distribution
+- Deployed at low cost using **AWS** EC2 T2micros; Scaled horizontally to 4 server instances
 - Tested response times and user throughput using **Loader.io**
+- Tested server endpoint responses using Postman
+- Note: The servers for this project have since been spun down (I was paying the hosting costs myself)
 
   ![](images/design_2.png)
 
